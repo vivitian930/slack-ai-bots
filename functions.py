@@ -6,12 +6,18 @@ from langchain.prompts.chat import (
     SystemMessagePromptTemplate,
     HumanMessagePromptTemplate,
 )
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 load_dotenv(find_dotenv())
 
 
-def draft_email(user_input, name="Eric"):
-    chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
+def draft_reply(user_input, name="Eric"):
+    chat = ChatOpenAI(
+        model_name="gpt-3.5-turbo",
+        callbacks=[StreamingStdOutCallbackHandler()],
+        temperature=1,
+        streaming=True,
+    )
 
     template = """
     
