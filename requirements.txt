@@ -1,0 +1,7 @@
+python-dotenv
+langchain
+openai
+slack-sdk
+slack-bolt 
+Flask
+urllib3==1.26.4
