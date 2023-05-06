@@ -69,11 +69,14 @@ def handle_mentions(body, say):
 
     mention = f"<@{SLACK_BOT_USER_ID}>"
     text = text.replace(mention, "").strip()
+    command = text.split(" ")[0]
+    text = " ".join(text.split(" ")[1:])
 
-    say("Sure, I'll get right on that!")
-    # response = my_function(text)
-    response = draft_email(text)
-    say(response)
+    if command.lower() == "/reply":
+        say("Sure, I'll get right on generating a reply!")
+        # response = my_function(text)
+        response = draft_email(text)
+        say(response)
 
 
 @flask_app.route("/slack/events", methods=["POST"])

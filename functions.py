@@ -10,7 +10,7 @@ from langchain.prompts.chat import (
 load_dotenv(find_dotenv())
 
 
-def draft_email(user_input, name="Vivi"):
+def draft_email(user_input, name="Eric"):
     chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
 
     template = """
