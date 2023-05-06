@@ -78,6 +78,9 @@ def handle_mentions(body, say):
         response = draft_email(text)
         say(response)
 
+    else:
+        say("Sorry, I didn't understand that command. Try /reply.")
+
 
 @flask_app.route("/slack/events", methods=["POST"])
 def slack_events():
