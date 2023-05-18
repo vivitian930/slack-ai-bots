@@ -31,3 +31,11 @@ def my_function(text):
     """
     response = text.upper()
     return response
+
+
+if __name__ == "__main__":
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    print(get_bot_user_id())
