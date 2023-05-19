@@ -33,12 +33,12 @@ jobs:
           echo "imageTag=$(cat version)" >> $GITHUB_ENV
 
       - name: Tag on fix branches
-        if: github.ref == 'refs/heads/fix'
+        if: startsWith(github.ref, 'refs/heads/fix/')
         run: |
           echo "imageTag=dev-${GITHUB_SHA::6}" >> $GITHUB_ENV
 
       - name: Tag on fix branches
-        if: github.ref == 'refs/heads/feature'
+        if: startsWith(github.ref, 'refs/heads/feature/')
         run: |
           echo "imageTag=dev-${GITHUB_SHA::6}" >> $GITHUB_ENV
 
