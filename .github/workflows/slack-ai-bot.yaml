@@ -26,7 +26,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           echo "imageTag=$(cat version)" >> $GITHUB_ENV
-          echo $imageTag
 
       - name: Debug - Image Tag
         run: |
@@ -35,7 +34,7 @@ jobs:
 
       - name: Docker - Build
         run: |
-          docker build -t ${{ env.imageName}}:${{ env.imageTag}}.
+          docker build -t ${{ env.imageName}}:${{ env.imageTag}} .
           echo "### Docker" >> $GITHUB_STEP_SUMMARY
           echo "Built Image \`${{ env.imageName }}:${{ env.imageTag }}\`" >> $GITHUB_STEP_SUMMARY
 
