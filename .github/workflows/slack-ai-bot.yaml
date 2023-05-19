@@ -26,6 +26,7 @@ jobs:
         if: github.ref == 'ref/heads/main'
         run: |
           echo "imageTag=$(cat version)" >> $GITHUB_ENV
+          echo $imageTag
 
       - name: Debug - Image Tag
         run: |
