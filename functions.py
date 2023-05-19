@@ -58,6 +58,6 @@ def draft_email(user_input, is_reply=False):
     )
 
     chain = LLMChain(llm=chat, prompt=chat_prompt)
-    response = chain.run(user_input=user_input, signature=signature, name=name)
+    response = chain.run(user_input=user_input, signature=signature)
 
     return response

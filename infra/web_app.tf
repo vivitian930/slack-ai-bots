@@ -6,7 +6,7 @@ module "linux_web_app" {
     app_service_plan_sku = "B1"
     os_type = "Linux"
     docker_image = "vivitian/slack-ai-bot"
-    docker_image_tag = "dev-1a34d8" 
+    docker_image_tag = "dev-f78eff" 
 
     app_service_plan_name = module.naming.asp
     system_assigned_managed_identity = true
