@@ -12,13 +12,16 @@ ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 COPY requirements.txt .
 
 # Install the dependencies
-RUN apk update && apk add build-base && pip install --no-cache-dir -r requirements.txt
+RUN apk update && apk add build-base
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code into the container
 COPY . .
 
-RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN addgroup -g 1001 -S appuser && adduser -u 1001 -S appuser -G appuser
 RUN chown -R appuser:appuser /app
+
+USER appuser
 
 # Expose the port on which the Flask app will run
 EXPOSE 5000
