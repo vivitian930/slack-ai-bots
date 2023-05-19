@@ -47,7 +47,7 @@ jobs:
           args: --file=Dockerfile
 
       - name: Scan -Publish Results
-        uses: github/codeql-cation/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: snyk.sarif
 
