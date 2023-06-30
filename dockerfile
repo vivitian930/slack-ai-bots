@@ -1,4 +1,4 @@
-FROM python:3.12.0b3-alpine
+FROM python:3.10.11-alpine
 
 # Set the working directory in the container
 WORKDIR /app
@@ -12,7 +12,7 @@ ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 COPY requirements.txt .
 
 # Install the dependencies
-RUN apk update && apk add build-base
+RUN apk update && apk add build-base && apk upgrade openssl
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code into the container
