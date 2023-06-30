@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "imageTag=hotfix-${GITHUB_SHA::6}" >> $GITHUB_ENV
 
-      - name: Tag on fix branches
+      - name: Tag on feature branches
         if: startsWith(github.ref, 'refs/heads/feat/')
         run: |
           echo "imageTag=dev-${GITHUB_SHA::6}" >> $GITHUB_ENV
