@@ -12,7 +12,10 @@ ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 COPY requirements.txt .
 
 # Install the dependencies
-RUN apk update && apk add build-base && apk upgrade openssl
+RUN apk update && apk add build-base
+RUN apk upgrade --update-cache --available && \
+    apk add openssl && \
+    rm -rf /var/cache/apk/*
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code into the container
